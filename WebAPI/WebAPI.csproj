@@ -225,6 +225,8 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\q16.jpg" />
+    <Content Include="Images\q17.png" />
     <Content Include="Models\DBModels.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DBModels.Context.cs</LastGenOutput>
