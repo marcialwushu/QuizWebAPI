@@ -19,5 +19,7 @@ namespace WebAPI.Models
         public string Email { get; set; }
         public Nullable<int> Score { get; set; }
         public Nullable<int> TimeSpent { get; set; }
+
+        
     }
 }

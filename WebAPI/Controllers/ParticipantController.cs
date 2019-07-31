@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Description;
 using WebAPI.Models;
 
 namespace WebAPI.Controllers
@@ -24,7 +25,7 @@ namespace WebAPI.Controllers
         }
         
         [HttpPost]
-        [Route("api/UpdateOutput")]
+        [Route("api/UpdateOutput")]        
         public void UpdateOutput(Participant model)
         {
             using (DBModel db = new DBModel())
@@ -34,6 +35,33 @@ namespace WebAPI.Controllers
                 
             }
 
+        }
+
+        private Participant[] participants = new Participant[]
+        {
+            new Participant {  }
+        };
+
+        [HttpGet]
+        [Route("api/Participants")]
+        [ResponseType(typeof(IEnumerable<Participant>))]
+        public IEnumerable<Participant> Get()
+        {
+            return participants;
+        }
+
+        [HttpGet]
+        [Route("api/Participants/{id}")]
+        public IHttpActionResult Get(int id)
+        {
+            var product = participants.FirstOrDefault((p) => p.ParticipantID == id);
+            if (product == null)
+            {
+                return NotFound();
+
+            }
+            return Ok(product);
+            
         }
     }
 }
